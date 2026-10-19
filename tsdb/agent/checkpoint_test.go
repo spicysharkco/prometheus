@@ -52,7 +52,7 @@ func TestCheckpointReplayCompatibility(t *testing.T) {
 		rs := remote.NewStorage(
 			promslog.NewNopLogger(), nil,
 			startTime, storageDir,
-			30*time.Second, nil, false,
+			30*time.Second, nil, false, false, false,
 		)
 		defer rs.Close()
 
@@ -310,7 +310,7 @@ func benchCheckpoint(b *testing.B, p benchCheckpointParams) {
 	rs := remote.NewStorage(
 		promslog.NewNopLogger(), nil,
 		startTime, p.storageDir,
-		30*time.Second, nil, false,
+		30*time.Second, nil, false, false, false,
 	)
 	defer rs.Close()
 
